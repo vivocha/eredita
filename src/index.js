@@ -66,7 +66,7 @@ export function mixin() {
   }
 }
 
-export class Templater {
+export class Eredita {
   constructor(data, parent) {
     this.data = data;
     this.parent = parent;

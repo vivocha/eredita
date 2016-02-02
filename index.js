@@ -78,16 +78,16 @@ function mixin() {
   };
 }
 
-var Templater = exports.Templater = function () {
-  function Templater(data, parent) {
-    _classCallCheck(this, Templater);
+var Eredita = exports.Eredita = function () {
+  function Eredita(data, parent) {
+    _classCallCheck(this, Eredita);
 
     this.data = data;
     this.parent = parent;
     this.dirty = false;
   }
 
-  _createClass(Templater, [{
+  _createClass(Eredita, [{
     key: 'dot',
     value: function dot(path, value) {
       var parts = path ? path.split('.') : [];
@@ -161,7 +161,7 @@ var Templater = exports.Templater = function () {
     }
   }]);
 
-  return Templater;
+  return Eredita;
 }();
 
 //# sourceMappingURL=index.js.map

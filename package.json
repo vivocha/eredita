@@ -1,5 +1,5 @@
 {
-  "name": "templater",
+  "name": "eredita",
   "version": "1.0.0",
   "description": "Javascript Data Inheritance",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vivocha/templater.git"
+    "url": "https://github.com/vivocha/eredita.git"
   },
   "keywords": [
     "js",
