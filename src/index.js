@@ -65,6 +65,7 @@ export function mixin() {
     deepExtend
   }
 }
+
 export class Templater {
   constructor(data, parent) {
     this.data = data;
