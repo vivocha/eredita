@@ -1,0 +1,28 @@
+{
+  "name": "templater",
+  "version": "1.0.04",
+  "description": "Javascript Data Inheritance",
+  "main": "index.js",
+  "scripts": {
+    "prepublish": "babel --presets es2015 --source-maps --out-file index.js src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivocha/templater.git"
+  },
+  "keywords": [
+    "js",
+    "json",
+    "temaplate",
+    "deep",
+    "extend"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.4.5",
+    "babel-core": "^6.4.0",
+    "babel-loader": "^6.2.1",
+    "babel-preset-es2015": "^6.3.13"
+  },
+  "author": "Federico Pinna <fpinna@vivocha.com>",
+  "license": "MIT"
+}
