@@ -112,7 +112,7 @@ var Eredita = exports.Eredita = function () {
     key: 'getPath',
     value: function getPath(path) {
       var v = this.dot(path);
-      return typeof v === 'undefined' ? this.parent ? this.parent.get(path) : undefined : v;
+      return typeof v === 'undefined' ? this.parent ? this.parent.getPath(path) : undefined : v;
     }
   }, {
     key: 'getTypedPath',
@@ -146,8 +146,8 @@ var Eredita = exports.Eredita = function () {
     key: 'mergePath',
     value: function mergePath(path) {
       var p = this.parent;
-      var _parent = p ? p.merge(path) : null;
-      var _self = this.get(path);
+      var _parent = p ? p.mergePath(path) : null;
+      var _self = this.getPath(path);
       if (!_parent) {
         return deepExtend({}, _self);
       } else {
