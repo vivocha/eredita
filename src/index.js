@@ -93,7 +93,7 @@ export class Eredita {
   }
   getPath(path) {
     var v = this.dot(path);
-    return typeof v === 'undefined' ? (this.parent ? this.parent.get(path): undefined) : v;
+    return typeof v === 'undefined' ? (this.parent ? this.parent.getPath(path): undefined) : v;
   }
   getTypedPath(path, _type, _default) {
     var v = this.get(path);
@@ -119,8 +119,8 @@ export class Eredita {
   }
   mergePath(path) {
     var p = this.parent;
-    var _parent = p ? p.merge(path) : null;
-    var _self = this.get(path);
+    var _parent = p ? p.mergePath(path) : null;
+    var _self = this.getPath(path);
     if (!_parent) {
       return deepExtend({}, _self);
     } else {
