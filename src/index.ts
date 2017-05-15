@@ -71,9 +71,11 @@ export class Eredita {
     }
     return ref;
   }
-  static deepExtend(target: any, ...args: any[]): any {
-    if (!target || typeof target !== 'object') {
+  static deepExtend(target: any, ...args: object[]): any {
+    if (!target) {
       throw new Error('missing target');
+    } else if (typeof target !== 'object') {
+      throw new Error('invalid target');
     } else if (!args.length) {
       return target;
     }
@@ -81,10 +83,11 @@ export class Eredita {
     let key, val, src, clone, tmpBuf;
 
     for (let obj of args) {
-      if (typeof obj !== 'object') return;
+      if (typeof obj !== 'object') {
+        throw new Error('invalid argument');
+      }
 
       for (key in obj) {
-        if ( ! (key in obj)) continue;
         src = target[key];
         val = obj[key];
 
