@@ -8,10 +8,10 @@ export class Eredita {
   constructor(protected data: any, protected parent?: Eredita) {
     if (!this.data) throw new Error('missing data');
   }
-  protected dot(path: string, value?: any): any {
+  protected dot(path?: string, value?: any): any {
     return Eredita.dot(this.data, path, value);
   }
-  getPath(path: string): any {
+  getPath(path?: string): any {
     let v = this.dot(path);
     return typeof v === 'undefined' ? (this.parent ? this.parent.getPath(path): undefined) : v;
   }
@@ -51,7 +51,7 @@ export class Eredita {
     return this.dirty;
   }
 
-  static dot(data: any, path: string, value?: any): any {
+  static dot(data: any, path?: string, value?: any): any {
     const parts = path ? path.split('.') : [];
     let ref = data;
     if (typeof value === 'undefined') {
