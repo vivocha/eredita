@@ -37,7 +37,7 @@ export class Eredita {
   unsetPath(path: string): any {
     return this.setPath(path, null);
   }
-  mergePath(path: string): any {
+  mergePath(path?: string): any {
     let p = this.parent;
     let _parent = p ? p.mergePath(path) : null;
     let _self = this.getPath(path);
