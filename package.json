@@ -30,7 +30,8 @@
     "extend"
   ],
   "files": [
-    "dist",
+    "dist/**/*.js",
+    "dist/**/*.ts",
     "README.md",
     "LICENSE"
   ],
