@@ -1,5 +1,5 @@
 const isArray = Array.isArray;
-const isObject = function(obj) {
+const isObject = function (obj) {
   return obj === Object(obj);
 };
 
@@ -13,7 +13,7 @@ export class Eredita {
   }
   getPath(path?: string): any {
     let v = this.dot(path);
-    return typeof v === 'undefined' ? (this.parent ? this.parent.getPath(path): undefined) : v;
+    return typeof v === 'undefined' ? (this.parent ? this.parent.getPath(path) : undefined) : v;
   }
   getTypedPath(path: string, type: string, def?: any): any {
     let v = this.getPath(path);
@@ -55,14 +55,14 @@ export class Eredita {
     const parts = path ? path.split('.') : [];
     let ref = data;
     if (typeof value === 'undefined') {
-      for (let i = 0, max = parts.length ; typeof ref !== 'undefined' && i < max; i++) {
+      for (let i = 0, max = parts.length; typeof ref !== 'undefined' && i < max; i++) {
         ref = ref[parts[i]];
       }
     } else {
       let p = null;
-      for (let i = 0, max = parts.length - 1 ; p = parts[i], i < max; i++) {
+      for (let i = 0, max = parts.length - 1; (p = parts[i]), i < max; i++) {
         if (typeof ref[p] !== 'object') {
-          ref[p] = (parseInt(parts[i + 1]) || parts[i + 1] == '0') ? [] : {};
+          ref[p] = parseInt(parts[i + 1]) || parts[i + 1] == '0' ? [] : {};
         }
         ref = ref[p];
       }
@@ -97,7 +97,7 @@ export class Eredita {
           target[key] = val;
           continue;
         } else if (val instanceof Buffer) {
-          tmpBuf = new Buffer(val.length);
+          tmpBuf = Buffer.alloc(val.length);
           val.copy(tmpBuf);
           target[key] = tmpBuf;
           continue;
@@ -107,15 +107,15 @@ export class Eredita {
         }
 
         if (typeof src !== 'object' || src === null) {
-          clone = (isArray(val)) ? [] : {};
+          clone = isArray(val) ? [] : {};
           target[key] = Eredita.deepExtend(clone, val);
           continue;
         }
 
         if (isArray(val)) {
-          clone = (isArray(src)) ? src : [];
+          clone = isArray(src) ? src : [];
         } else {
-          clone = (!isArray(src)) ? src : {};
+          clone = !isArray(src) ? src : {};
         }
 
         target[key] = Eredita.deepExtend(clone, val);
@@ -126,10 +126,11 @@ export class Eredita {
   }
 }
 
+export const dot = Eredita.dot;
 export const deepExtend = Eredita.deepExtend;
 
 export function mixin() {
   return {
-    deepExtend
-  }
+    deepExtend,
+  };
 }
