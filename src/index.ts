@@ -62,7 +62,7 @@ export class Eredita {
       let p = null;
       for (let i = 0, max = parts.length - 1; (p = parts[i]), i < max; i++) {
         if (typeof ref[p] !== 'object') {
-          ref[p] = parseInt(parts[i + 1]) || parts[i + 1] == '0' ? [] : {};
+          ref[p] = isNaN(parts[i + 1] as any) ? {} : [];
         }
         ref = ref[p];
       }
