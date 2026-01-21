@@ -50,7 +50,7 @@
     "coveralls": "3.1.0",
     "cz-conventional-changelog": "3.3.0",
     "husky": "6.0.0",
-    "lodash": "4.17.21",
+    "lodash": "4.17.23",
     "mocha": "8.3.2",
     "nyc": "15.1.0",
     "rimraf": "3.0.2",
