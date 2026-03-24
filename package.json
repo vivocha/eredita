@@ -54,7 +54,7 @@
     "mocha": "8.3.2",
     "nyc": "15.1.0",
     "rimraf": "3.0.2",
-    "semantic-release": "^17.4.2",
+    "semantic-release": "^25.0.3",
     "typescript": "4.2.4",
     "underscore": "1.13.1"
   },
