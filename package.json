@@ -1,6 +1,6 @@
 {
   "name": "eredita",
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "description": "Javascript Data Inheritance",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
