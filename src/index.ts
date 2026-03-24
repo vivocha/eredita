@@ -88,6 +88,7 @@ export class Eredita {
       }
 
       for (key in obj) {
+        if (key === '__proto__' || key === 'constructor' || key === 'prototype') continue;
         src = target[key];
         val = obj[key];
 

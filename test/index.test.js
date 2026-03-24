@@ -351,6 +351,32 @@ describe('eredita', function () {
       let a = { a: { b: 1 } };
       Eredita.deepExtend(t, a).should.deep.equal({ a: { b: 1 } });
     });
+
+    it('should not pollute Object.prototype via __proto__', function () {
+      const malicious = JSON.parse('{"__proto__":{"polluted":"yes"}}');
+      Eredita.deepExtend({}, malicious);
+      should.not.exist(({}).polluted);
+      should.not.exist(Object.prototype.polluted);
+    });
+
+    it('should not pollute Object.prototype via nested __proto__', function () {
+      const malicious = JSON.parse('{"a":{"__proto__":{"nested":"yes"}}}');
+      Eredita.deepExtend({}, malicious);
+      should.not.exist(({}).nested);
+      should.not.exist(Object.prototype.nested);
+    });
+
+    it('should not pollute via constructor key', function () {
+      const malicious = JSON.parse('{"constructor":{"prototype":{"constructorPolluted":"yes"}}}');
+      Eredita.deepExtend({}, malicious);
+      should.not.exist(({}).constructorPolluted);
+    });
+
+    it('should not pollute via prototype key', function () {
+      const malicious = JSON.parse('{"prototype":{"prototypePolluted":"yes"}}');
+      Eredita.deepExtend({}, malicious);
+      should.not.exist(({}).prototypePolluted);
+    });
   });
 
   describe('mixin', function () {
